@@ -31,4 +31,40 @@ function output = sum_text(text)
 end
 
 
+
 sum_text(text)
+
+%{
+clc, clear;
+
+textTest = "+10-30+100-50=";
+textTest = strtrim(textTest);
+waow = split(textTest,{'+','-','='});
+waot = split(textTest,digitsPattern);
+waow = str2double(waow);
+wowzers = [];
+shark =[];
+odpoved =0;
+if waot(end) == '='
+    for i=1:numel(waow);
+        if isnan(waow(i));
+    
+        else
+            wowzers(end+1) = (waow(i));
+        end
+    end
+    for i=1:length(waot)-1
+            if waot(i) == '+'
+                shark(end+1) = (wowzers(i));
+            else
+                shark(end+1) = -(wowzers(i));
+            end
+    end
+    for i=1:numel(shark)
+        odpoved = odpoved+(shark(i));
+    end
+else
+    odpoved = [];
+end
+disp(odpoved)
+}%
