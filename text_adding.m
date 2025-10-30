@@ -34,6 +34,37 @@ end
 
 sum_text(text)
 
+clc; clear; close all;
+
+text = "18-36+130 ";
+
+text = char(text);
+
+num = 0;
+sign = 1;
+result = 0;
+
+for i = 1:length(text)
+   switch text(i)
+        case '+'
+            result = result + sign*num;
+            num = 0;
+            sign = 1;
+        case '-'
+            result = result + sign*num;
+            num = 0;
+            sign = -1;
+        case '='
+            break
+        case ' '
+        otherwise
+            num = num*10 + text(i)-48;
+    end
+end
+
+result = result + sign*num;
+disp(result)
+
 %{
 clc, clear;
 
